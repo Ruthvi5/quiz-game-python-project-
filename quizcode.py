@@ -331,3 +331,24 @@ select_call_button=Button(root,image=callimage,bd=0,bg='black',activebackground=
 centerImage = PhotoImage(file="center.png")
 logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200)
 logoLabel.grid(row=0, column=0)
+
+amountdisplay = PhotoImage(file="Picture1.png")
+amountdisplay1 = PhotoImage(file="Picture1.png")
+amountdisplay2 = PhotoImage(file="Picture2.png")
+amountdisplay3 = PhotoImage(file="Picture3.png")
+amountdisplay4 = PhotoImage(file="Picture4.png")
+amountdisplay5 = PhotoImage(file="Picture5.png")
+amountdisplay6 = PhotoImage(file="Picture6.png")
+amountdisplay7 = PhotoImage(file="Picture7.png")
+amountdisplay8 = PhotoImage(file="Picture8.png")
+amountdisplay9 = PhotoImage(file="Picture9.png")
+amountdisplay10 = PhotoImage(file="Picture10.png")
+amountdisplay11 = PhotoImage(file="Picture11.png")
+amountdisplay12 = PhotoImage(file="Picture12.png")
+amountdisplay13 = PhotoImage(file="Picture13.png")
+amountdisplay14 = PhotoImage(file="Picture14.png")
+amountdisplay15 = PhotoImage(file="Picture15.png")
+
+Amountdisplay = [amountdisplay1, amountdisplay2, amountdisplay3,amountdisplay4, amountdisplay5,amountdisplay6, amountdisplay7, amountdisplay8, amountdisplay9, amountdisplay10,
+                amountdisplay11, amountdisplay12, amountdisplay13, amountdisplay4, amountdisplay15]
+
