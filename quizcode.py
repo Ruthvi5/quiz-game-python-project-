@@ -389,3 +389,13 @@ labelD.place(x=330, y=190)
 optionButton4 = Button(bottomFrame, text=fourth_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
                         activebackground="black", activeforeground="white", cursor='hand2')
 optionButton4.place(x=370, y=190)
+
+statusbarA=Progressbar(root,orient=VERTICAL,length=120)
+statusbarB=Progressbar(root,orient=VERTICAL,length=120)
+statusbarC=Progressbar(root,orient=VERTICAL,length=120)
+statusbarD=Progressbar(root,orient=VERTICAL,length=120)
+
+statusbarLabelA=Label(root,text='A',font=('arial',20,'bold'),bg='black',fg='white')
+statusbarLabelB=Label(root,text='B',font=('arial',20,'bold'),bg='black',fg='white')
+statusbarLabelC=Label(root,text='C',font=('arial',20,'bold'),bg='black',fg='white')
+statusbarLabelD=Label(root,text='D',font=('arial',20,'bold'),bg='black',fg='white')
