@@ -46,8 +46,10 @@ def choice(action):
                     optionButton3.config(text=third_option[0])
                     optionButton4.config(text=fourth_option[0])
                     amountLabel.config(image=amountdisplay)
-
-                
+               
+                mixer.music.stop()
+                mixer.music.load('Kbcwon.mp3')
+                mixer.music.play()
 
                 root2 = Toplevel()
                 root2.overrideredirect(True)
