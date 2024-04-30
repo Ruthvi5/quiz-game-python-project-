@@ -351,4 +351,41 @@ amountdisplay15 = PhotoImage(file="Picture15.png")
 
 Amountdisplay = [amountdisplay1, amountdisplay2, amountdisplay3,amountdisplay4, amountdisplay5,amountdisplay6, amountdisplay7, amountdisplay8, amountdisplay9, amountdisplay10,
                 amountdisplay11, amountdisplay12, amountdisplay13, amountdisplay4, amountdisplay15]
+amountLabel = Label(rightframe, image=amountdisplay, bg='Black')
+amountLabel.grid(row=0, column=0)
 
+layoutImage = PhotoImage(file="lay.png")
+layoutLabel = Label(bottomFrame, image=layoutImage, bg="Black")
+layoutLabel.grid()
+questionArea = Text(bottomFrame, font=("arial", 18, "bold"), width=34, height=2, wrap='word', bg="black", fg="white",
+                    bd=0)
+questionArea.place(x=70, y=10)
+questionArea.insert(END, questions[0])
+# A
+labelA = Label(bottomFrame, text='A:', bg="black", fg='white', font=("arial", 16, "bold"))
+labelA.place(x=60, y=110)
+
+optionButton1 = Button(bottomFrame, text=first_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
+                        activebackground="black", activeforeground="white", cursor='hand2')
+optionButton1.place(x=100, y=110)
+# B
+labelB = Label(bottomFrame, text='B:', bg="black", fg='white', font=("arial", 16, "bold"))
+labelB.place(x=330, y=110)
+
+optionButton2 = Button(bottomFrame, text=second_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
+                        activebackground="black", activeforeground="white", cursor='hand2')
+optionButton2.place(x=370, y=110)
+# c
+labelC = Label(bottomFrame, text='C:', bg="black", fg='white', font=("arial", 16, "bold"))
+labelC.place(x=60, y=190)
+
+optionButton3 = Button(bottomFrame, text=third_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
+                        activebackground="black", activeforeground="white", cursor='hand2')
+optionButton3.place(x=100, y=190)
+# D
+labelD = Label(bottomFrame, text='D:', bg="black", fg='white', font=("arial", 16, "bold"))
+labelD.place(x=330, y=190)
+
+optionButton4 = Button(bottomFrame, text=fourth_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
+                        activebackground="black", activeforeground="white", cursor='hand2')
+optionButton4.place(x=370, y=190)
