@@ -278,3 +278,56 @@ def phonepress():
         if questionArea.get(1.0,'end-1c')==questions[i]:
             voice_sample.say(f'The answer is {expected_answer[i]}')
             voice_sample.runAndWait()
+expected_answer = ['Bangalore','Delhi','Surya Sen','The Hauge','Wellington Stadium','Beauxbatons','Alam Ara','The aperture','Mahesh Bhupati','Genome','Flute','Longbourn','Raj Kapoor','Hubble','1957']
+
+questions = ['Which city is known as the silicon valley of india?','Which city in india has most UNESCO heritage sites?','Who among the following was not involved in the Lahore conspiracy case?','The international Court of justice sits in?','The national stadium in Delhi was earlier known as?','What was the name of the wizarding school in France?','Which is the first talkie feature film of india?','What determines the sharpness of a camera?','Who is the first Indian to win a Grand Slam tennis tournament?','A cell builds its proteins from the Instructions encoded in its _.','Which of the following musical instruments is NOT of foreign origin?','According to the classic novel Pride & Prejudice,where does the Bennet family live?','Who is known as the showman of Indian film industry?','Who first proposed that the galaxy was expanding?','What year was the oldest programming language still in use invented?']
+first_option = ['Hyderabad','Delhi','Surya Sen','The Hauge','Irwin Stadium','Hogwarts','Raja Harishchandra','The aperture','Sania Mirza','Cytoplasm','Tabla','Pemberly','Raj Kapoor','Einstein','1957']
+second_option = ['Mumbai','Jaipur','Bhagat Singh','Geneva','Mountabatten Stadium','Beauxbatons','Alam Ara','The exposure time','Rohan Bopanna','Amino acid', 'Flute','Longbourn','Nargis','Kepler','1952']
+third_option = ['Chennai','Jaisalmer','Rajguru','Vienna','Wellington Stadium','Drumstrang','Duniya na mane','The focal length','Mahesh Bhupati','Lysosome','Sitar','Rosings','Dev Anand','Hubble','1960']
+fourth_option = ['Bangalore','Agra','Sukhdev','Rome','Canning Stadium','Castelobruxo','Aadami','Size of the camera','Leander Paes','Genome','Violin','London','Rajendra Kumar','Maxwell','1974']
+root = Tk()
+
+root.geometry('1270x652+0+0')  # dimensions of the screen
+root.title("who wants to be a millionaire?")  # name of the window
+
+root.config(bg="black")  # changing the color of window
+
+leftframe = Frame(root, bg='black', padx=90)  # creating the left part of the screen
+leftframe.grid(row=0, column=0)  # using the grid method to put it on the window
+
+topFrame = Frame(leftframe, bg='black', pady=15)
+topFrame.grid()
+
+centerFrame = Frame(leftframe, bg="black", pady=15)
+centerFrame.grid(row=1, column=0)
+
+bottomFrame = Frame(leftframe)
+bottomFrame.grid(row=2, column=0)
+
+rightframe = Frame(root, pady=25, padx=50, bg="black")  # check the values
+rightframe.grid(row=0, column=1)
+
+image50 = PhotoImage(file="50-50.png")
+image50X = PhotoImage(file="50-50-X.png")
+support_50_50Button = Button(topFrame, image=image50, bg='black', bd=0, activebackground="lavender", width=180, height=80,command=support_50_50)
+support_50_50Button.grid(row=0, column=0)
+
+spectator_poll = PhotoImage(file="audiencePole.png")
+spectator_pollX=PhotoImage(file="audiencePoleX.png")
+spectator_pollButton = Button(topFrame, image=spectator_poll, bg="black", bd=0, activebackground="lavender", width=180,
+                            height=80,command=spectator_poll_lifeline)
+spectator_pollButton.grid(row=0, column=1)
+
+phoneImage= PhotoImage(file="phoneAFriend.png")
+phoneImageX= PhotoImage(file="phoneAFriendX.png")
+call_for_assistanceButton = Button(topFrame, image=phoneImage, bg="black", bd=0, activebackground="lavender", width=180,
+                                height=80,command=call_for_assistance)
+call_for_assistanceButton.grid(row=0, column=2)
+
+callimage=PhotoImage(file='phone.png')
+select_call_button=Button(root,image=callimage,bd=0,bg='black',activebackground='black',cursor='hand2',command=phonepress)
+
+
+centerImage = PhotoImage(file="center.png")
+logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200)
+logoLabel.grid(row=0, column=0)
