@@ -131,3 +131,150 @@ def choice(action):
             sadLabel.place()
             root1.mainloop()
             break
+def support_50_50():
+    support_50_50Button.config(image=image50X,state=DISABLED)
+    if questionArea.get(1.0,'end-1c')==questions[0]:
+        optionButton1.config(text='')
+        optionButton2.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[1]:
+        optionButton2.config(text='')
+        optionButton3.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[2]:
+        optionButton3.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[3]:
+        optionButton2.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[4]:
+        optionButton4.config(text='')
+        optionButton3.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[5]:
+        optionButton1.config(text='')
+        optionButton3.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[6]:
+        optionButton1.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[7]:
+        optionButton4.config(text='')
+        optionButton3.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[8]:
+        optionButton2.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[9]:
+        optionButton2.config(text='')
+        optionButton1.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[10]:
+        optionButton4.config(text='')
+        optionButton3.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[11]:
+        optionButton1.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[12]:
+        optionButton3.config(text='')
+        optionButton2.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[13]:
+        optionButton1.config(text='')
+        optionButton4.config(text='')
+    if questionArea.get(1.0,'end-1c')==questions[14]:
+        optionButton2.config(text='')
+        optionButton4.config(text='')
+
+def spectator_poll_lifeline():
+    spectator_pollButton.config(image=spectator_pollX,state=DISABLED)
+    statusbarA.place(x=580,y=190)
+    statusbarB.place(x=620,y=190)
+    statusbarC.place(x=660,y=190)
+    statusbarD.place(x=700,y=190)
+
+    statusbarLabelA.place(x=580,y=320)
+    statusbarLabelB.place(x=620,y=320)
+    statusbarLabelC.place(x=660,y=320)
+    statusbarLabelD.place(x=700,y=320)
+
+    if questionArea.get(1.0,'end-1c')==questions[0]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=90)
+    if questionArea.get(1.0,'end-1c')==questions[1]:
+        statusbarA.config(value=90)
+        statusbarB.config(value=80)
+        statusbarC.config(value=50)
+        statusbarD.config(value=10)
+    if questionArea.get(1.0,'end-1c')==questions[2]:
+        statusbarA.config(value=90)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=45)
+    if questionArea.get(1.0,'end-1c')==questions[3]:
+        statusbarA.config(value=95)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=10)
+    if questionArea.get(1.0,'end-1c')==questions[4]:
+        statusbarA.config(value=10)
+        statusbarB.config(value=80)
+        statusbarC.config(value=50)
+        statusbarD.config(value=15)
+    if questionArea.get(1.0,'end-1c')==questions[5]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=10)
+    if questionArea.get(1.0,'end-1c')==questions[6]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=70)
+        statusbarC.config(value=10)
+        statusbarD.config(value=50)
+    if questionArea.get(1.0,'end-1c')==questions[7]:
+        statusbarA.config(value=50)
+        statusbarB.config(value=20)
+        statusbarC.config(value=50)
+        statusbarD.config(value=90)
+    if questionArea.get(1.0,'end-1c')==questions[8]:
+        statusbarA.config(value=10)
+        statusbarB.config(value=40)
+        statusbarC.config(value=90)
+        statusbarD.config(value=70)
+    if questionArea.get(1.0,'end-1c')==questions[9]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=90)
+    if questionArea.get(1.0,'end-1c')==questions[10]:
+        statusbarA.config(value=90)
+        statusbarB.config(value=60)
+        statusbarC.config(value=40)
+        statusbarD.config(value=10)
+    if questionArea.get(1.0,'end-1c')==questions[11]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=90)
+        statusbarC.config(value=50)
+        statusbarD.config(value=40)
+    if questionArea.get(1.0,'end-1c')==questions[12]:
+        statusbarA.config(value=90)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=30)
+    if questionArea.get(1.0,'end-1c')==questions[13]:
+        statusbarA.config(value=30)
+        statusbarB.config(value=90)
+        statusbarC.config(value=50)
+        statusbarD.config(value=40)
+    if questionArea.get(1.0,'end-1c')==questions[14]:
+        statusbarA.config(value=90)
+        statusbarB.config(value=60)
+        statusbarC.config(value=50)
+        statusbarD.config(value=10)
+
+def call_for_assistance():
+    mixer.music.load('calling.mp3')
+    mixer.music.play()
+    select_call_button.place(x=70,y=260)
+    call_for_assistanceButton.config(image=phoneImageX,state=DISABLED)
+
+def phonepress():
+    for i in range(15):
+        if questionArea.get(1.0,'end-1c')==questions[i]:
+            voice_sample.say(f'The answer is {expected_answer[i]}')
+            voice_sample.runAndWait()
