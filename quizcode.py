@@ -399,3 +399,10 @@ statusbarLabelA=Label(root,text='A',font=('arial',20,'bold'),bg='black',fg='whit
 statusbarLabelB=Label(root,text='B',font=('arial',20,'bold'),bg='black',fg='white')
 statusbarLabelC=Label(root,text='C',font=('arial',20,'bold'),bg='black',fg='white')
 statusbarLabelD=Label(root,text='D',font=('arial',20,'bold'),bg='black',fg='white')
+
+optionButton1.bind('<Button-1>', choice)
+optionButton2.bind('<Button-1>', choice)
+optionButton3.bind('<Button-1>', choice)
+optionButton4.bind('<Button-1>', choice)
+
+root.mainloop()
