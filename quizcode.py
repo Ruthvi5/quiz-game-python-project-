@@ -23,12 +23,13 @@ def choice(action):
     statusbarLabelB.place_forget()
     statusbarLabelC.place_forget()
     statusbarLabelD.place_forget()
-    b = action.widget
-    data = b['text']
+    b = action.widget  #returns which button is getting pressed out of four options 
+    data = b['text']   #get text of the button
 
     for i in range(15):
-        if data == expected_answer[i]:
+        if data == expected_answer[i]:  #checking whether selected option is right
 
+            #if reached till last question
             if data == expected_answer[14]:
                 def wrap_up():
                     root2.destroy()
@@ -39,8 +40,9 @@ def choice(action):
                     spectator_pollButton.config(state=NORMAL, image=spectator_poll)
                     call_for_assistanceButton.config(state=NORMAL, image=phoneImage)
                     root2.destroy()
-                    questionArea.delete(1.0, END)
+                    questionArea.delete(1.0, END)  
                     questionArea.insert(END, questions[0])
+                    #updating the text in option buttons
                     optionButton1.config(text=first_option[0])
                     optionButton2.config(text=second_option[0])
                     optionButton3.config(text=third_option[0])
@@ -52,24 +54,24 @@ def choice(action):
                 mixer.music.play()
 
                 root2 = Toplevel()
-                root2.overrideredirect(True)
+                root2.overrideredirect(True)  #removing title bar for window
                 root2.config(bg='Green')
                 root2.geometry('500x400+140+30')
                 root2.title('You won 0 rupees')
                 imgLabel = Label(root2, image=centerImage, bd=0)
                 imgLabel.pack(pady=30)
 
-                winLabel = Label(root2, text="You won", font=(" arial", 40, 'bold'), bg='Green', fg='white')
+                winLabel = Label(root2, text="You won", font=(" arial", 40, 'bold'), bg='Green', fg='white')  #creating label for win
                 winLabel.pack()
 
                 playagainButton = Button(root2, text="Replay", font=('arial', 20, 'bold'), bg='Green', fg="white",
                                             activebackground='black', activeforeground='white', bd=0, cursor='hand2',
-                                            command=replay)
+                                            command=replay)   #creating play again biutton
                 playagainButton.pack()
 
                 closeButton = Button(root2, text="close", font=('arial', 20, 'bold'), bg='Green', fg="white",
                                         activebackground='black', activeforeground='white', bd=0, cursor='hand2',
-                                        command=wrap_up)
+                                        command=wrap_up)   #creating close button
                 closeButton.pack()
 
                 # smile_image = PhotoImage(file='happy.png')
@@ -78,52 +80,55 @@ def choice(action):
                 root1.mainloop()
                 break
 
-            questionArea.delete(1.0, END)
-            questionArea.insert(END, questions[i + 1])
-
+            questionArea.delete(1.0, END)  #delete existing question text
+            questionArea.insert(END, questions[i + 1])  #inset next question text
+            
+            #changing options for next question
             optionButton1.config(text=first_option[i + 1])
             optionButton2.config(text=second_option[i + 1])
             optionButton3.config(text=third_option[i + 1])
             optionButton4.config(text=fourth_option[i + 1])
-            amountLabel.config(image=Amountdisplay[i + 1])
+            amountLabel.config(image=Amountdisplay[i + 1])  #update img for amount display of next question
 
         if data not in expected_answer:
             def wrap_up():
-                root1.destroy()
+                #closing the window when close button is pressed
+                root1.destroy()  
                 root.destroy()
 
             def have_another_try():
                 support_50_50Button.config(state=NORMAL,image=image50)
                 spectator_pollButton.config(state=NORMAL,image=spectator_poll)
                 call_for_assistanceButton.config(state=NORMAL,image=phoneImage)
-                root1.destroy()
-                questionArea.delete(1.0, END)
-                questionArea.insert(END, questions[0])
+                root1.destroy()  #closing you lose window
+                questionArea.delete(1.0, END)   #delete existing question
+                questionArea.insert(END, questions[0])  #insert first question again
+                #insert options for first question
                 optionButton1.config(text=first_option[0])
                 optionButton2.config(text=second_option[0])
                 optionButton3.config(text=third_option[0])
                 optionButton4.config(text=fourth_option[0])
-                amountLabel.config(image=amountdisplay)
+                amountLabel.config(image=amountdisplay)  #img reset for first question
 
-            root1 = Toplevel()
-            root1.overrideredirect(True)
+            root1 = Toplevel()  #new window on another window
+            root1.overrideredirect(True)  #removing title 88bar for window
             root1.config(bg='Red')
             root1.geometry('500x400+140+30')
             root1.title('You won 0 rupees')
-            imgLabel = Label(root1, image=centerImage, bd=0)
-            imgLabel.pack(pady=30)
+            imgLabel = Label(root1, image=centerImage, bd=0)  #label for you lose window
+            imgLabel.pack(pady=30)  #placing label on window
 
-            loseLabel = Label(root1, text="You lose", font=("arial", 40, 'bold'), bg='Red', fg='white')
+            loseLabel = Label(root1, text="You lose", font=("arial", 40, 'bold'), bg='Red', fg='white')  #creating label for you lose
             loseLabel.pack()
 
             try_againButton = Button(root1, text="Have another try", font=('arial', 20, 'bold'), bg='Red', fg="white",
                                     activebackground='black', activeforeground='white', bd=0, cursor='hand2',
-                                    command=have_another_try)
+                                    command=have_another_try)  #creating button for try_again button
             try_againButton.pack()
 
             closeButton = Button(root1, text="close", font=('arial', 20, 'bold'), bg='Red', fg="white",
                                     activebackground='black', activeforeground='white', bd=0, cursor='hand2',
-                                    command = wrap_up)
+                                    command = wrap_up)  #creatinf button for close_button
             closeButton.pack()
 
             sad_image = PhotoImage(file='sad.png')
@@ -285,7 +290,8 @@ first_option = ['Hyderabad','Delhi','Surya Sen','The Hauge','Irwin Stadium','Hog
 second_option = ['Mumbai','Jaipur','Bhagat Singh','Geneva','Mountabatten Stadium','Beauxbatons','Alam Ara','The exposure time','Rohan Bopanna','Amino acid', 'Flute','Longbourn','Nargis','Kepler','1952']
 third_option = ['Chennai','Jaisalmer','Rajguru','Vienna','Wellington Stadium','Drumstrang','Duniya na mane','The focal length','Mahesh Bhupati','Lysosome','Sitar','Rosings','Dev Anand','Hubble','1960']
 fourth_option = ['Bangalore','Agra','Sukhdev','Rome','Canning Stadium','Castelobruxo','Aadami','Size of the camera','Leander Paes','Genome','Violin','London','Rajendra Kumar','Maxwell','1974']
-root = Tk()
+
+root = Tk()  #creating GUI window
 
 root.geometry('1270x652+0+0')  # dimensions of the screen
 root.title("who wants to be a millionaire?")  # name of the window
@@ -307,31 +313,33 @@ bottomFrame.grid(row=2, column=0)
 rightframe = Frame(root, pady=25, padx=50, bg="black")  # check the values
 rightframe.grid(row=0, column=1)
 
-image50 = PhotoImage(file="50-50.png")
-image50X = PhotoImage(file="50-50-X.png")
-support_50_50Button = Button(topFrame, image=image50, bg='black', bd=0, activebackground="lavender", width=180, height=80,command=support_50_50)
-support_50_50Button.grid(row=0, column=0)
+image50 = PhotoImage(file="50-50.png")  #img for lifeline support_50-50
+image50X = PhotoImage(file="50-50-X.png")  #crossed img for lifeline support_50-50
+support_50_50Button = Button(topFrame, image=image50, bg='black', bd=0, activebackground="lavender", width=180, height=80,command=support_50_50)  #button for lifeline support_50-50
+support_50_50Button.grid(row=0, column=0)  #placing lifeline support_50-50 button in window
 
-spectator_poll = PhotoImage(file="audiencePole.png")
-spectator_pollX=PhotoImage(file="audiencePoleX.png")
+spectator_poll = PhotoImage(file="audiencePole.png")  #img for spectator_poll lifeline 
+spectator_pollX=PhotoImage(file="audiencePoleX.png")   #crossed img for spectator_poll lifeline 
 spectator_pollButton = Button(topFrame, image=spectator_poll, bg="black", bd=0, activebackground="lavender", width=180,
-                            height=80,command=spectator_poll_lifeline)
-spectator_pollButton.grid(row=0, column=1)
+                            height=80,command=spectator_poll_lifeline)  #button for spectator_poll lifeline
+spectator_pollButton.grid(row=0, column=1)  #placing spectator_poll lifeline button in window
 
-phoneImage= PhotoImage(file="phoneAFriend.png")
-phoneImageX= PhotoImage(file="phoneAFriendX.png")
+
+phoneImage= PhotoImage(file="phoneAFriend.png")   #img for call_for_assistance lifeline 
+phoneImageX= PhotoImage(file="phoneAFriendX.png")   #crossed img for call_for_assistance lifeline 
 call_for_assistanceButton = Button(topFrame, image=phoneImage, bg="black", bd=0, activebackground="lavender", width=180,
-                                height=80,command=call_for_assistance)
-call_for_assistanceButton.grid(row=0, column=2)
+                                height=80,command=call_for_assistance)   #button for call_for_assistance lifeline
+call_for_assistanceButton.grid(row=0, column=2)   #placing call_for_assistance lifeline button in window
 
-callimage=PhotoImage(file='phone.png')
+callimage=PhotoImage(file='phone.png')  
 select_call_button=Button(root,image=callimage,bd=0,bg='black',activebackground='black',cursor='hand2',command=phonepress)
 
 
-centerImage = PhotoImage(file="center.png")
-logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200)
-logoLabel.grid(row=0, column=0)
+centerImage = PhotoImage(file="center.png") #img for logo
+logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200)  #creating logo label
+logoLabel.grid(row=0, column=0)  #placing logo label
 
+#img for displaying amount for each question
 amountdisplay = PhotoImage(file="Picture1.png")
 amountdisplay1 = PhotoImage(file="Picture1.png")
 amountdisplay2 = PhotoImage(file="Picture2.png")
@@ -351,44 +359,44 @@ amountdisplay15 = PhotoImage(file="Picture15.png")
 
 Amountdisplay = [amountdisplay1, amountdisplay2, amountdisplay3,amountdisplay4, amountdisplay5,amountdisplay6, amountdisplay7, amountdisplay8, amountdisplay9, amountdisplay10,
                 amountdisplay11, amountdisplay12, amountdisplay13, amountdisplay4, amountdisplay15]
-amountLabel = Label(rightframe, image=amountdisplay, bg='Black')
-amountLabel.grid(row=0, column=0)
+amountLabel = Label(rightframe, image=amountdisplay, bg='Black')  #creating label for amount display
+amountLabel.grid(row=0, column=0)  #placinf label for amount display
 
-layoutImage = PhotoImage(file="lay.png")
-layoutLabel = Label(bottomFrame, image=layoutImage, bg="Black")
-layoutLabel.grid()
+layoutImage = PhotoImage(file="lay.png")  #layout img for question
+layoutLabel = Label(bottomFrame, image=layoutImage, bg="Black") #creating label for layout img for question
+layoutLabel.grid()  #placing label for layout img for question
 questionArea = Text(bottomFrame, font=("arial", 18, "bold"), width=34, height=2, wrap='word', bg="black", fg="white",
-                    bd=0)
-questionArea.place(x=70, y=10)
-questionArea.insert(END, questions[0])
+                    bd=0)  #creating text area for question
+questionArea.place(x=70, y=10) #placing text area
+questionArea.insert(END, questions[0])  #inserting first question in text area
 # A
-labelA = Label(bottomFrame, text='A:', bg="black", fg='white', font=("arial", 16, "bold"))
-labelA.place(x=60, y=110)
+labelA = Label(bottomFrame, text='A:', bg="black", fg='white', font=("arial", 16, "bold"))   #label for option A
+labelA.place(x=60, y=110)  #placing label for option A
 
 optionButton1 = Button(bottomFrame, text=first_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
-                        activebackground="black", activeforeground="white", cursor='hand2')
-optionButton1.place(x=100, y=110)
+                        activebackground="black", activeforeground="white", cursor='hand2')  #creating button for option A
+optionButton1.place(x=100, y=110)  #placing the button
 # B
-labelB = Label(bottomFrame, text='B:', bg="black", fg='white', font=("arial", 16, "bold"))
-labelB.place(x=330, y=110)
+labelB = Label(bottomFrame, text='B:', bg="black", fg='white', font=("arial", 16, "bold"))  #label for option B
+labelB.place(x=330, y=110)    #placing label for option B
 
 optionButton2 = Button(bottomFrame, text=second_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
-                        activebackground="black", activeforeground="white", cursor='hand2')
-optionButton2.place(x=370, y=110)
+                        activebackground="black", activeforeground="white", cursor='hand2')   #creating button for option B
+optionButton2.place(x=370, y=110)   #placing the button
 # c
-labelC = Label(bottomFrame, text='C:', bg="black", fg='white', font=("arial", 16, "bold"))
-labelC.place(x=60, y=190)
+labelC = Label(bottomFrame, text='C:', bg="black", fg='white', font=("arial", 16, "bold"))  #label for option C
+labelC.place(x=60, y=190)   #placing label for option C
 
 optionButton3 = Button(bottomFrame, text=third_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
-                        activebackground="black", activeforeground="white", cursor='hand2')
-optionButton3.place(x=100, y=190)
+                        activebackground="black", activeforeground="white", cursor='hand2')   #creating button for option C
+optionButton3.place(x=100, y=190)   #placing the button
 # D
-labelD = Label(bottomFrame, text='D:', bg="black", fg='white', font=("arial", 16, "bold"))
-labelD.place(x=330, y=190)
+labelD = Label(bottomFrame, text='D:', bg="black", fg='white', font=("arial", 16, "bold"))   #label for option D
+labelD.place(x=330, y=190)   #placing label for option D
 
 optionButton4 = Button(bottomFrame, text=fourth_option[0], font=('arial', 12, "bold"), bg="black", fg="white", bd=0,
-                        activebackground="black", activeforeground="white", cursor='hand2')
-optionButton4.place(x=370, y=190)
+                        activebackground="black", activeforeground="white", cursor='hand2')   #creating button for option D
+optionButton4.place(x=370, y=190)   #placing the button
 
 statusbarA=Progressbar(root,orient=VERTICAL,length=120)
 statusbarB=Progressbar(root,orient=VERTICAL,length=120)
@@ -400,9 +408,11 @@ statusbarLabelB=Label(root,text='B',font=('arial',20,'bold'),bg='black',fg='whit
 statusbarLabelC=Label(root,text='C',font=('arial',20,'bold'),bg='black',fg='white')
 statusbarLabelD=Label(root,text='D',font=('arial',20,'bold'),bg='black',fg='white')
 
+#linking four option buttons with choice function
 optionButton1.bind('<Button-1>', choice)
 optionButton2.bind('<Button-1>', choice)
 optionButton3.bind('<Button-1>', choice)
 optionButton4.bind('<Button-1>', choice)
 
-root.mainloop()
+#to keep window on hold
+root.mainloop()  
