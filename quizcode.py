@@ -76,9 +76,11 @@ def choice(action):
                                         command=wrap_up)   #creating close button
                 closeButton.pack()
 
-                # smile_image = PhotoImage(file='happy.png')
-                # happyLabel = Label(root2, image=smile_image, bg="black")
-                # happyLabel.place()
+                smile_image = PhotoImage(file='happy.png')
+                happyLabel = Label(root2, image=smile_image, bg="green")
+                happyLabel.place(x=40,y=280)
+                happyLabel_1 = Label(root2, image=smile_image, bg="green")
+                happyLabel_1.place(x=380,y=280)
                 root1.mainloop()
                 break
 
@@ -135,8 +137,10 @@ def choice(action):
             closeButton.pack()
 
             sad_image = PhotoImage(file='sad.png')
-            sadLabel = Label(root1, image=sad_image, bg="black")
-            sadLabel.place()
+            sadLabel = Label(root1, image=sad_image, bg="red")
+            sadLabel.place(x=40,y=280)
+            sadLabel_1 = Label(root1, image=sad_image, bg="red")
+            sadLabel_1.place(x=380,y=280)
             root1.mainloop()
             break
 def support_50_50():
