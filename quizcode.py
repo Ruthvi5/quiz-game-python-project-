@@ -1,24 +1,26 @@
 from tkinter import *
-from tkinter.ttk import Progressbar
-import pyttsx3
-from pygame import mixer
+from tkinter.ttk import Progressbar   #for progressbar for spectator_poll lifeline
+import pyttsx3  #to hear the sound of the text
+from pygame import mixer  #to load and play music
 
 voice_sample = pyttsx3.init()
 voices=voice_sample.getProperty('voices')
-voice_sample.setProperty('voice',voices[1].id)
+voice_sample.setProperty('voice',voices[1].id) #1 for female voice
 
 #load the background music 
 mixer.init()
 mixer.music.load('kbc.mp3')
-mixer.music.play(-1)
+mixer.music.play(-1)  #-1 for playing music in a loop
 
 def choice(action):
     select_call_button.place_forget()
+    #remove progressbar after selecting any option
     statusbarA.place_forget()
     statusbarB.place_forget()
     statusbarC.place_forget()
     statusbarD.place_forget()
 
+    #remove progress labels after selecting any option
     statusbarLabelA.place_forget()
     statusbarLabelB.place_forget()
     statusbarLabelC.place_forget()
@@ -49,7 +51,7 @@ def choice(action):
                     optionButton4.config(text=fourth_option[0])
                     amountLabel.config(image=amountdisplay)
                
-                mixer.music.stop()
+                mixer.music.stop()  #to stop music which was already being played in background
                 mixer.music.load('Kbcwon.mp3')
                 mixer.music.play()
 
@@ -97,6 +99,7 @@ def choice(action):
                 root.destroy()
 
             def have_another_try():
+                #to get lifelines again
                 support_50_50Button.config(state=NORMAL,image=image50)
                 spectator_pollButton.config(state=NORMAL,image=spectator_poll)
                 call_for_assistanceButton.config(state=NORMAL,image=phoneImage)
@@ -137,9 +140,9 @@ def choice(action):
             root1.mainloop()
             break
 def support_50_50():
-    support_50_50Button.config(image=image50X,state=DISABLED)
-    if questionArea.get(1.0,'end-1c')==questions[0]:
-        optionButton1.config(text='')
+    support_50_50Button.config(image=image50X,state=DISABLED)  #img to display after the suport_50-50 lifeline is used once
+    if questionArea.get(1.0,'end-1c')==questions[0]: #end-1c to remove new line character, getting text from start
+        optionButton1.config(text='')                #removing two options which are not the correct answer
         optionButton2.config(text='')
     if questionArea.get(1.0,'end-1c')==questions[1]:
         optionButton2.config(text='')
@@ -185,18 +188,21 @@ def support_50_50():
         optionButton4.config(text='')
 
 def spectator_poll_lifeline():
-    spectator_pollButton.config(image=spectator_pollX,state=DISABLED)
+    spectator_pollButton.config(image=spectator_pollX,state=DISABLED)   #img to display after the spectator_poll lifeline is used once
+    #inserting progressbars in window
     statusbarA.place(x=580,y=190)
     statusbarB.place(x=620,y=190)
     statusbarC.place(x=660,y=190)
     statusbarD.place(x=700,y=190)
 
+    #insering progrss labels in window
     statusbarLabelA.place(x=580,y=320)
     statusbarLabelB.place(x=620,y=320)
     statusbarLabelC.place(x=660,y=320)
     statusbarLabelD.place(x=700,y=320)
 
-    if questionArea.get(1.0,'end-1c')==questions[0]:
+    if questionArea.get(1.0,'end-1c')==questions[0]:   #end-1c to remove new line character, getting text from start and comparing if it is question[]
+        #provide highest value to correct ans
         statusbarA.config(value=30)
         statusbarB.config(value=60)
         statusbarC.config(value=50)
@@ -273,15 +279,15 @@ def spectator_poll_lifeline():
         statusbarD.config(value=10)
 
 def call_for_assistance():
-    mixer.music.load('calling.mp3')
+    mixer.music.load('calling.mp3')  #sound for calling
     mixer.music.play()
     select_call_button.place(x=70,y=260)
-    call_for_assistanceButton.config(image=phoneImageX,state=DISABLED)
+    call_for_assistanceButton.config(image=phoneImageX,state=DISABLED)  #crossed call_for_assistance lifeline button after used once
 
 def phonepress():
     for i in range(15):
         if questionArea.get(1.0,'end-1c')==questions[i]:
-            voice_sample.say(f'The answer is {expected_answer[i]}')
+            voice_sample.say(f'The answer is {expected_answer[i]}')  #to hear the ans 
             voice_sample.runAndWait()
 expected_answer = ['Bangalore','Delhi','Surya Sen','The Hauge','Wellington Stadium','Beauxbatons','Alam Ara','The aperture','Mahesh Bhupati','Genome','Flute','Longbourn','Raj Kapoor','Hubble','1957']
 
@@ -331,8 +337,8 @@ call_for_assistanceButton = Button(topFrame, image=phoneImage, bg="black", bd=0,
                                 height=80,command=call_for_assistance)   #button for call_for_assistance lifeline
 call_for_assistanceButton.grid(row=0, column=2)   #placing call_for_assistance lifeline button in window
 
-callimage=PhotoImage(file='phone.png')  
-select_call_button=Button(root,image=callimage,bd=0,bg='black',activebackground='black',cursor='hand2',command=phonepress)
+callimage=PhotoImage(file='phone.png')   #img for call 
+select_call_button=Button(root,image=callimage,bd=0,bg='black',activebackground='black',cursor='hand2',command=phonepress)  #button for call
 
 
 centerImage = PhotoImage(file="center.png") #img for logo
@@ -398,11 +404,13 @@ optionButton4 = Button(bottomFrame, text=fourth_option[0], font=('arial', 12, "b
                         activebackground="black", activeforeground="white", cursor='hand2')   #creating button for option D
 optionButton4.place(x=370, y=190)   #placing the button
 
-statusbarA=Progressbar(root,orient=VERTICAL,length=120)
+#creating progressbar for spectator_poll lifeline
+statusbarA=Progressbar(root,orient=VERTICAL,length=120) 
 statusbarB=Progressbar(root,orient=VERTICAL,length=120)
 statusbarC=Progressbar(root,orient=VERTICAL,length=120)
 statusbarD=Progressbar(root,orient=VERTICAL,length=120)
 
+#creating label for progressbar for spectator_poll lifeline
 statusbarLabelA=Label(root,text='A',font=('arial',20,'bold'),bg='black',fg='white')
 statusbarLabelB=Label(root,text='B',font=('arial',20,'bold'),bg='black',fg='white')
 statusbarLabelC=Label(root,text='C',font=('arial',20,'bold'),bg='black',fg='white')
